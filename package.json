@@ -1,0 +1,27 @@
+{
+  "name": "@uaset/core",
+  "version": "1.0.0",
+  "description": "Universal Antigravity Software Engineering Toolkit (UASET) — Multi-agent engineering ecosystem for Google Antigravity",
+  "main": "bin/uaset.js",
+  "bin": {
+    "uaset": "./bin/uaset.js"
+  },
+  "scripts": {
+    "start": "node bin/uaset.js",
+    "uaset": "node bin/uaset.js",
+    "validate": "node scripts/validate/validate-all.js",
+    "test": "node scripts/validate/run-tests.js",
+    "audit": "node scripts/validate/audit-system.js",
+    "install:global": "node scripts/install/install-global.js",
+    "status": "node bin/uaset.js status"
+  },
+  "keywords": [
+    "antigravity",
+    "multi-agent",
+    "software-engineering",
+    "orchestrator",
+    "uaset"
+  ],
+  "author": "UASET Architecture Board",
+  "license": "Apache-2.0"
+}

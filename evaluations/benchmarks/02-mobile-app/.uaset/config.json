@@ -1,0 +1,37 @@
+{
+  "version": "1.0.0",
+  "initializedAt": "2026-11-16T14:59:21.353Z",
+  "project": {
+    "name": "02-mobile-app",
+    "domain": "Mobile Application",
+    "stack": [
+      "Flutter/Dart",
+      "React Native",
+      "Kotlin/Swift"
+    ],
+    "assignedAgents": [
+      "uaset-orchestrator",
+      "uaset-mobile-engineer",
+      "uaset-android-engineer",
+      "uaset-ios-engineer",
+      "uaset-ui-ux-designer",
+      "uaset-test-engineer"
+    ]
+  },
+  "governance": {
+    "constitutionEnforced": true,
+    "qualityGatesEnforced": [
+      "G0",
+      "G1",
+      "G2",
+      "G3",
+      "G4",
+      "G5",
+      "G6",
+      "G7",
+      "G8",
+      "G9"
+    ],
+    "securityScanOnBuild": true
+  }
+}

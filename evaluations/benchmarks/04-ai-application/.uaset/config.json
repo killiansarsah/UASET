@@ -1,0 +1,38 @@
+{
+  "version": "1.0.0",
+  "initializedAt": "2026-11-16T14:59:22.658Z",
+  "project": {
+    "name": "04-ai-application",
+    "domain": "AI / Generative System",
+    "stack": [
+      "Python",
+      "FastAPI",
+      "LangChain",
+      "Vector DB"
+    ],
+    "assignedAgents": [
+      "uaset-orchestrator",
+      "uaset-aiml-engineer",
+      "uaset-backend-engineer",
+      "uaset-data-engineer",
+      "uaset-security-architect",
+      "uaset-test-engineer"
+    ]
+  },
+  "governance": {
+    "constitutionEnforced": true,
+    "qualityGatesEnforced": [
+      "G0",
+      "G1",
+      "G2",
+      "G3",
+      "G4",
+      "G5",
+      "G6",
+      "G7",
+      "G8",
+      "G9"
+    ],
+    "securityScanOnBuild": true
+  }
+}

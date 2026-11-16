@@ -1,0 +1,38 @@
+{
+  "version": "1.0.0",
+  "initializedAt": "2026-11-16T14:59:20.656Z",
+  "project": {
+    "name": "01-fullstack-saas",
+    "domain": "Full-stack SaaS",
+    "stack": [
+      "React/Next.js",
+      "TypeScript",
+      "Node.js",
+      "PostgreSQL/Prisma"
+    ],
+    "assignedAgents": [
+      "uaset-orchestrator",
+      "uaset-frontend-engineer",
+      "uaset-backend-engineer",
+      "uaset-database-engineer",
+      "uaset-test-engineer",
+      "uaset-appsec-engineer"
+    ]
+  },
+  "governance": {
+    "constitutionEnforced": true,
+    "qualityGatesEnforced": [
+      "G0",
+      "G1",
+      "G2",
+      "G3",
+      "G4",
+      "G5",
+      "G6",
+      "G7",
+      "G8",
+      "G9"
+    ],
+    "securityScanOnBuild": true
+  }
+}

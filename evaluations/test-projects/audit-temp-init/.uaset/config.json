@@ -1,0 +1,34 @@
+{
+  "version": "1.0.0",
+  "initializedAt": "2026-11-16T15:01:14.264Z",
+  "project": {
+    "name": "audit-temp-init",
+    "domain": "General Software Application",
+    "stack": [
+      "Generic / Undetected"
+    ],
+    "assignedAgents": [
+      "uaset-orchestrator",
+      "uaset-software-architect",
+      "uaset-fullstack-engineer",
+      "uaset-test-engineer",
+      "uaset-appsec-engineer"
+    ]
+  },
+  "governance": {
+    "constitutionEnforced": true,
+    "qualityGatesEnforced": [
+      "G0",
+      "G1",
+      "G2",
+      "G3",
+      "G4",
+      "G5",
+      "G6",
+      "G7",
+      "G8",
+      "G9"
+    ],
+    "securityScanOnBuild": true
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "version": "1.0.0",
+  "initializedAt": "2026-11-16T14:59:22.065Z",
+  "project": {
+    "name": "03-windows-desktop",
+    "domain": "Windows / Desktop Application",
+    "stack": [
+      ".NET/C#",
+      "Tauri/Rust",
+      "Electron"
+    ],
+    "assignedAgents": [
+      "uaset-orchestrator",
+      "uaset-desktop-engineer",
+      "uaset-windows-engineer",
+      "uaset-systems-engineer",
+      "uaset-ui-ux-designer",
+      "uaset-test-engineer"
+    ]
+  },
+  "governance": {
+    "constitutionEnforced": true,
+    "qualityGatesEnforced": [
+      "G0",
+      "G1",
+      "G2",
+      "G3",
+      "G4",
+      "G5",
+      "G6",
+      "G7",
+      "G8",
+      "G9"
+    ],
+    "securityScanOnBuild": true
+  }
+}
