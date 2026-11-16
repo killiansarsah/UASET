@@ -3,11 +3,12 @@
  * Deploys UASET from the repository to ~/.gemini/config/plugins/uaset
  */
 
+const os = require('os');
 const { execSync } = require('child_process');
 const fs = require('fs');
 const path = require('path');
 
-const GLOBAL_PLUGIN_DIR = path.join(process.env.USERPROFILE || 'C:\\Users\\killi', '.gemini', 'config', 'plugins', 'uaset');
+const GLOBAL_PLUGIN_DIR = path.join(os.homedir(), '.gemini', 'config', 'plugins', 'uaset');
 const REPO_ROOT = path.join(__dirname, '..', '..');
 
 console.log(`\n============================================================`);
@@ -44,19 +45,30 @@ const rulesContent = `# UASET Global Engineering Directive\n\nThis environment i
 fs.writeFileSync(path.join(GLOBAL_PLUGIN_DIR, 'rules', 'AGENTS.md'), rulesContent, 'utf8');
 console.log(`[+] Wrote rules/AGENTS.md to global plugin.`);
 
-// 4. Synchronize agents and skills using robocopy or PowerShell
+// 4. Synchronize agents and skills cross-platform
 try {
   const agentsSrc = path.join(REPO_ROOT, 'agents');
   const agentsDst = path.join(GLOBAL_PLUGIN_DIR, 'agents');
   const skillsSrc = path.join(REPO_ROOT, 'skills');
   const skillsDst = path.join(GLOBAL_PLUGIN_DIR, 'skills');
 
-  execSync(`robocopy "${agentsSrc}" "${agentsDst}" /E /NFL /NDL /NJH /NJS`, { stdio: 'ignore' });
-  execSync(`robocopy "${skillsSrc}" "${skillsDst}" /E /NFL /NDL /NJH /NJS`, { stdio: 'ignore' });
-  console.log(`[+] Synchronized agents and skills via Robocopy.`);
+  fs.cpSync(agentsSrc, agentsDst, { recursive: true, force: true });
+  fs.cpSync(skillsSrc, skillsDst, { recursive: true, force: true });
+  console.log(`[+] Synchronized agents and skills via cross-platform copy.`);
 } catch (e) {
-  // Robocopy returns exit code 1 on success, which Node treats as non-zero
-  console.log(`[+] Transfer completed (Robocopy status code received).`);
+  // Fallback to platform native copy if needed
+  if (process.platform === 'win32') {
+    try {
+      execSync(`robocopy "${path.join(REPO_ROOT, 'agents')}" "${path.join(GLOBAL_PLUGIN_DIR, 'agents')}" /E /NFL /NDL /NJH /NJS`, { stdio: 'ignore' });
+      execSync(`robocopy "${path.join(REPO_ROOT, 'skills')}" "${path.join(GLOBAL_PLUGIN_DIR, 'skills')}" /E /NFL /NDL /NJH /NJS`, { stdio: 'ignore' });
+    } catch (_) {}
+  } else {
+    try {
+      execSync(`cp -R "${path.join(REPO_ROOT, 'agents')}/." "${path.join(GLOBAL_PLUGIN_DIR, 'agents')}"`, { stdio: 'ignore' });
+      execSync(`cp -R "${path.join(REPO_ROOT, 'skills')}/." "${path.join(GLOBAL_PLUGIN_DIR, 'skills')}"`, { stdio: 'ignore' });
+    } catch (_) {}
+  }
+  console.log(`[+] Transfer completed.`);
 }
 
 // 5. Verification
